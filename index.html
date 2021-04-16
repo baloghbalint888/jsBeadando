@@ -1,126 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COVID-19</title>
-    <link rel="stylesheet" href="stilus.css">
+    <title>COVID-19 OLTÁSOK</title>
+    <script src="script.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="stilus.css">
+
+
 </head>
+<body>
+    <div class="elem">
+        <div class="bal col-md-3 col-sm-6">
+            <h1>COVID-19 OLTÁS</h1>
+            <div class="adat1">
+                <label for="nev">Név:</label>
+                <input type="text" id="nev"></div>
+                <div><label for="ev">Születési év:</label>
+                <input type="number" id="ev">
+            </div>
+            <div class="adat2">
+                <div class="kerdes">
+                    <label for="vkb">Van-e krónikus betegsége?</label>
+                    <input type="checkbox" name="kerd" id="vkb">
+                </div>
+                <div class="kerdes">
+                    <label for="eid">Egészségügyben, idősotthonban dolgozik?</label>
+                    <input type="checkbox" name="kerd" id="eid"
+                ></div>
+                <div class="kerdes">
+                    <label for="il">Idősotthonban lakik?</label>
+                    <input type="checkbox" name="kerd" id="il">
+                </div>
+                <div class="kerdes">
+                    <label for="kemav">Korábban elkaptam már a vírust?</label>
+                    <input type="checkbox" name="kerd" id="kemav">
+                </div>
 
-<body class="bg-dark text-white">
-    <div class="row">
-    <div class="container col-3 p-3">
-        <div><label for="nev">Név:</label>
-        <input type="text" id="nev"></div>
-        <div><label for="nev">Születési év:</label>
-        <input type="number" id="kat"></div>
-        
-        <button onclick="felvesz()">Felvesz</button>
-        <div>
-            <label for="no">Növekvő sorrend</label>
-        <input type="radio" onchange="kiir()" name="valt" id="no" checked>
-        <label for="csokken">Csökkenő sorrend</label>
-        <input type="radio" onchange="kiir()" name="valt" id="csokken">
+                <button onclick="felvesz()">Felvesz</button>
+            </div>
         </div>
-        
-    </div>
-    <div class="container col-3 p-3">
-        <div class="kerdes">
-            <label for="vkb">Van-e krónikus betegsége?</label>
-            <input type="radio" name="radio" id="vkb">
+        <div class="kozep1 col-md-3 col-sm-6">
+            <h1>Oltásra várakozók listája</h1>
+            <div id="ki"></div>
         </div>
-        <div class="kerdes">
-            <label for="eid">Egészségügyben, idősotthonban dolgozik?</label>
-            <input type="radio" name="radio" id="eid"
-        ></div>
-        <div class="kerdes">
-            <label for="il">Idősotthonban lakik?</label>
-            <input type="checkbox" name="" id="il">
+        <div class="kozep2 col-md-3 col-sm-6">
+            <h1>Beoltottak listája</h1>
+            <div id="ki2"></div>
         </div>
-        <div class="kerdes">
-            <label for="kemav">Korábban elkaptam már a vírust?</label>
-            <input type="checkbox" name="" id="kemav">
+        <div class="jobb col-md-3 col-sm-6">
+           <div> <p class="na">A <b>COVID-19</b> betegség az egyes embereknél különböző tüneteket vált ki.
+                A legtöbb fertőzöttnél enyhe vagy közepesen súlyos lefolyású betegség alakul ki, amelyből a gyógyulás kórházi ápolás nélkül bekövetkezik.</p></div>
+                
+                <div class="tarto">
+                    <div class="fent">
+                    <p>A leggyakoribb tünetek:</p> 
+                        <ul>
+                            <li>láz</li> 
+                            <li>száraz köhögés</li> 
+                            <li>fáradékonyság</li> 
+                        </ul>
+                    </div>
+                    <div class="lent">
+                        <p>Kevésbé gyakori tünetek:</p>  
+                        <ul>
+                            <li>fájdalom</li> 
+                            <li>torokfájás</li>  
+                            <li>hasmenés</li> 
+                            <li>kötőhártya-gyulladás</li> 
+                            <li>fejfájás</li> 
+                            <li>a szaglás/ízlelés elvesztése</li> 
+                            <li>bőrkiütés, vagy elszíneződés az ujjakon/lábujjakon</li> 
+                        </ul>
+                    </div>
+                </div>
         </div>
     </div>
-    <div class="info container col-3 p-3">
-        <p>
-            A COVID-19 betegség az egyes embereknél különböző tüneteket vált ki.
-            A legtöbb fertőzöttnél enyhe vagy közepesen súlyos lefolyású betegség alakul ki, amelyből a gyógyulás kórházi ápolás nélkül bekövetkezik.
-            A leggyakoribb tünetek: </p>
-            <ul>
-                <li>láz</li> 
-                <li>száraz köhögés</li> 
-                <li>fáradékonyság</li> 
-            </ul>
-              <p>Kevésbé gyakori tünetek:</p>  
-            <ul>
-                <li>fájdalom</li> 
-                <li>torokfájás</li>  
-                <li>hasmenés</li> 
-                <li>kötőhártya-gyulladás</li> 
-                <li>fejfájás</li> 
-                <li>a szaglás/ízlelés elvesztése</li> 
-                <li>bőrkiütés, vagy elszíneződés az ujjakon/lábujjakon</li> 
-            </ul>
-               
-
+    <div class="alsoelem">
+        <div class="item1">
+            <div><h2>Regisztráció oltásra</h2></div>
+            <a href="https://vakcinainfo.gov.hu/regisztracio-oltasra" target="_blank"><div class="kep"><img src="virus.jpg" class="img-fluid img-thumbnail"></div></a> 
+            
+        </div>
+        <div class="item2">
+            <div><h2>További információk</h2></div>
+            <a href="https://hu.wikipedia.org/wiki/Covid19" target="_blank"><div class="kep"><img src="wiki.jpg" class="img-fluid img-thumbnail"></div></a>
+        </div>
+        <div class="item3">
+            <div><h2>Vakcinák</h2></div>
+            <a href="https://ocdn.eu/pulscms-transforms/1/dXLktkpTURBXy82MDdjOGMwYjQ2ZjU4NGI1ODBmMzgzNWQ1YTUxZDBhZC5qcGeRlQLNA1IAwsM" target="_blank" rel="noopener noreferrer"><div class="kep"><img src="vakcina.jpg" class="img-fluid img-thumbnail"></div></a>
+        </div>
     </div>
-
-    <div class="container col-3 p-3" id="kimenet">
-    </div>
-</div>
-<div class="row">
-
-</div>
-    <script>
-        var tomb = []
-        kiir();
-        function fg(a, b) {
-            if (no.checked)
-                return a[1] - b[1];
-            else
-                return b[1] - a[1];
-        }
-        function kiir() {
-            var s = "<ul>";
-            tomb.sort(fg);
-            for (var i = 0; i < tomb.length; i++) {
-                s += "<li onclick='torol(" + i + ")'>" + tomb[i][0] + " " + tomb[i][1] + "</li>"
-            }
-            s += "</ul>"
-            document.getElementById("kimenet").innerHTML = s;
-        }
-        function felvesz() {
-            var nev = document.getElementById("nev").value;
-            var kat = document.getElementById("kat").value;
-            if (nev.length > 0 && kat.length > 0) {
-                var kat = parseInt(kat)
-                var uj = [nev, kat]
-                tomb.push(uj)
-                document.getElementById("nev").value = "";
-                document.getElementById("kat").value = "";
-                kiir()
-            }
-            else alert("Hiba")
-        }
-        function torol(sorszam) {
-            tomb.splice(sorszam, 1);
-            kiir();
-        }
-        function hozzaszol() {
-            var hozza = document.getElementById("hozza").value;
-            if (hozza.length > 0) {
-                tomb.push(hozza)
-                document.getElementById("hozza").value = "";
-                kiir()
-            }
-            else alert("Hiba")
-        }
-    </script>
-    </main>
+    
 </body>
-
 </html>
